@@ -1,0 +1,23 @@
+{
+  "name": "@layerzerolabs/lz-v2-solana-counter",
+  "private": true,
+  "license": "BUSL-1.1",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "$npm_execpath clean-prebuild && anchor build",
+    "clean-prebuild": "rimraf target",
+    "test": "cargo-test-sbf"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "inputs": ["libs/**/*", "programs/**/*"],
+      "outputs": ["target/deploy/**", "target/idl/**"]
+    }
+  }
+}

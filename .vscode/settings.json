@@ -1,0 +1,19 @@
+{
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "rust-analyzer.linkedProjects": [
+    "./packages/solana/Cargo.toml",
+
+  ],
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
