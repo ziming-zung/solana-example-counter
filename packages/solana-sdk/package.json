@@ -8,25 +8,20 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./package.json": "./package.json",
-    "./deployments/*": "./deployments/*"
+    "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "deployments/**/*",
     "dist/**/*"
   ],
   "scripts": {
-    "api-gen": "$npm_execpath gen-idl && $npm_execpath ts-node scripts/generate.ts",
-    "build": "$npm_execpath clean-prebuild && $npm_execpath sync-target && $npm_execpath api-gen && $npm_execpath build-ts",
+    "api-gen": "$npm_execpath ts-node scripts/generate.ts",
+    "build": "$npm_execpath clean-prebuild && $npm_execpath sync-target-idl && $npm_execpath api-gen && $npm_execpath build-ts",
     "build-ts": "$npm_execpath tsc --noEmit && $npm_execpath tsup",
     "clean": "$npm_execpath clean-prebuild",
-    "clean-prebuild": "rimraf .turbo target dist",
-    "gen-idl": "$npm_execpath sync-target-idl && rsync -avc --delete target/idl/ ./idl/",
-    "sync-target": "$npm_execpath sync-target-deploy && $npm_execpath sync-target-idl",
-    "sync-target-deploy": "mkdir -p target/deploy && rsync -avc --delete ../solana/target/deploy/ target/deploy/",
-    "sync-target-idl": "mkdir -p target/idl && rsync -avc --delete ../solana/target/idl/ target/idl/",
+    "clean-prebuild": "rimraf dist",
+    "sync-target-idl": "mkdir -p target/idl && rsync -avc --delete ../solana/target/idl/ ./idl/"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.29.0",
