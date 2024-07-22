@@ -1,0 +1,5 @@
+# src/generated
+!deployments/solana-sandbox-local/
+!artifacts
+target
+dist

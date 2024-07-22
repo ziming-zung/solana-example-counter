@@ -1,0 +1,14 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "../solana/target/deploy",
+        "../solana/target/idl"
+      ],
+      "outputs": ["target/**", "dist/**"],
+      "env": ["ANCHOR_WALLET"]
+    }
+  }
+}
